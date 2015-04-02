@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Flow Carrousel</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/imageflow.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+<div id="wrapper">
+    <h1>Hypotheses/attemption for a wrapper of ImageFlow</h1>
+    <h3>Some DOM manipulation and a minimum responsive design</h3>
+    <div id="myImageFlow" class="imageflow">
+    </div>
+    <hr/>
+    <div class="row">
+        <div id="navigation" class="col-md-2">
+            <h2>Navigations:</h2>
+            <a id="btn-prev" href="#"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+            <a id="btn-next" href="#"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+        </div>
+        <div id="imageFilters" class="col-md-4">
+            <h2>Filters:</h2>
+            <ul class="nav nav-pills nav-stacked">
+                
+            </ul>
+        </div>
+        <div id="imageContent" class="col-md-5">
+            <ul class="list-group">
+                <li class="list-group-item"> Name: <span id="imageName"></span></li>
+                <li class="list-group-item"> Type: <span id="imageType"></span></li>
+                <li class="list-group-item"> Text: <span id="imageText"></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/imageflow.js"></script>
+</footer>
+
+</body>
+</html>
