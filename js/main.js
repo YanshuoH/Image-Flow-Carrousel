@@ -86,3 +86,11 @@ for (var i=0; i<types.length; i++) {
     var filterElement = '<li><a href="#">' + types[i] + '</a></li>';
     $('#imageFilters ul').append(filterElement);
 }
+
+if (window.outerWidth <= 640) {
+    document.getElementById('wrapper').className = 'mobile';
+    imageFlowOptions.imageFocusMax = 0;
+} else {
+    document.getElementById('wrapper').className = 'desktop';
+    imageFlowOptions.imageFocusMax = 2;
+}
