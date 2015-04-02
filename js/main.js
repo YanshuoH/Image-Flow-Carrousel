@@ -119,5 +119,17 @@ domReady(function()
 
     // render images by persons JSON
     renderImages(persons);
+
+    var instanceOne = new ImageFlow();
+
+    // init function + addResizeEvent for responsive
+    var initImageFlowByOptions = function(instanceOne, options) {
+        instanceOne.init(imageFlowOptions);
+    }
+
+    initImageFlowByOptions(instanceOne, imageFlowOptions);
+
+    // For debug
+    window.instanceOne = instanceOne;
 });
 
