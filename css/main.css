@@ -20,6 +20,18 @@ h3 {
     text-align: center;
 }
 
+.left-widget {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 80px;
+  height: 50px;
+  width: 170px;
+  z-index: 200;
+  text-align: center;
+  line-height: 3;
+  font-size: 16px;
+}
+
 @media (max-width: 640px) {
     #myImageFlow {
         width: 325px;
