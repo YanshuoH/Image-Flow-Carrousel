@@ -120,11 +120,26 @@ domReady(function()
     // render images by persons JSON
     renderImages(persons);
 
+    // Wrap function for other event listeners
+    var initAddon = function() {
+        // Hide caption text, render other places
+        $(instanceOne.captionDiv).hide();
+
+        $('#btn-prev').on('click', function() {
+            $(instanceOne.buttonPreviousDiv).click();
+        });
+
+        $('#btn-next').on('click', function() {
+            $(instanceOne.buttonNextDiv).click();
+        });
+    }
+
     var instanceOne = new ImageFlow();
 
     // init function + addResizeEvent for responsive
     var initImageFlowByOptions = function(instanceOne, options) {
         instanceOne.init(imageFlowOptions);
+        initAddon();
     }
 
     initImageFlowByOptions(instanceOne, imageFlowOptions);
