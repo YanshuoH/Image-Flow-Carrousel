@@ -56,3 +56,33 @@ var persons = {
         text: 'Pellentesque auctor neque nec urna.'
     },
 };
+
+// Image flow options
+var imageFlowOptions = {
+    ImageFlowID:'myImageFlow',
+    reflections: false,
+    reflectionP: 0.0,
+    captions: true,
+    imageCursor: 'pointer',
+    opacity: true,
+    circular: true,
+    buttons: true,
+    slider: false,
+    xStep: 50,
+    imageFocusMax: 2,
+    onClick: function() {
+        alert('Landescape image clicked !');
+    }
+};
+
+var types = [];
+for (person in persons) {
+    if (types.indexOf(persons[person].type) === -1) {
+        types.push(persons[person].type);
+    }
+}
+
+for (var i=0; i<types.length; i++) {
+    var filterElement = '<li><a href="#">' + types[i] + '</a></li>';
+    $('#imageFilters ul').append(filterElement);
+}
