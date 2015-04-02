@@ -117,6 +117,18 @@ domReady(function()
         }
     };
 
+    // filter persons list by type
+    var filterList = function(persons, type) {
+        var list = {};
+        for (var person in persons) {
+            if (persons[person].type === type) {
+                list[person] = persons[person];
+            }
+        }
+
+        return list;
+    };
+
     // render images by persons JSON
     renderImages(persons);
 
@@ -145,6 +157,14 @@ domReady(function()
 
         $('#btn-next').on('click', function() {
             $(instanceOne.buttonNextDiv).click();
+        });
+
+        // Filters
+        $('#imageFilters a').on('click', function(event) {
+            renderImages(
+                filterList(persons, $(this).text())
+            );
+            initImageFlowByOptions(instanceOne, imageFlowOptions);
         });
 
         watchCaption();
