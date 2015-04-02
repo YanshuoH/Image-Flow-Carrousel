@@ -120,6 +120,20 @@ domReady(function()
     // render images by persons JSON
     renderImages(persons);
 
+    var watchCaption = function() {
+        // using jQuery, watching caption DOM Changes
+        $('#myImageFlow_caption').bind('DOMSubtreeModified', function(e) {
+            if (e.target.innerHTML.length > 0) {
+              var $this = $(this);
+              var key = $this.text();
+              var person = persons[key];
+              $('#imageName').text(key);
+              $('#imageType').text(person.type);
+              $('#imageText').text(person.text);
+            }
+        });
+    };
+
     // Wrap function for other event listeners
     var initAddon = function() {
         // Hide caption text, render other places
@@ -132,6 +146,8 @@ domReady(function()
         $('#btn-next').on('click', function() {
             $(instanceOne.buttonNextDiv).click();
         });
+
+        watchCaption();
     }
 
     var instanceOne = new ImageFlow();
