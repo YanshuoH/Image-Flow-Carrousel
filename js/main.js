@@ -99,6 +99,9 @@ if (window.outerWidth <= 640) {
 /* Create ImageFlow instances when the DOM structure has been loaded */
 domReady(function()
 {
+    // Get wrapper div for responsive
+    var wrapper = $('#wrapper');
+
     // Using DOM to render images from JSON
     var renderImages = function(persons) {
         var imageFlowDiv = document.getElementById('myImageFlow');
@@ -179,6 +182,27 @@ domReady(function()
     }
 
     initImageFlowByOptions(instanceOne, imageFlowOptions);
+
+    // How about a little responsive
+    window.addEventListener('resize', function(event){
+        if (window.outerWidth <= 640
+            && wrapper.attr('class').indexOf('mobile') === -1
+        ) {
+            wrapper.removeClass('desktop').addClass('mobile');
+            renderImages(persons);
+
+            var minImageFlowOptions = imageFlowOptions;
+            minImageFlowOptions.imageFocusMax = 0;
+
+            initImageFlowByOptions(instanceOne, minImageFlowOptions);
+        } else if (window.outerWidth > 640 && wrapper.attr('class').indexOf('desktop') === -1) {
+            wrapper.removeClass('mobile').addClass('desktop');
+            renderImages(persons);
+
+            imageFlowOptions.imageFocusMax = 2;
+            initImageFlowByOptions(instanceOne, imageFlowOptions);
+        }
+    });
 
     // For debug
     window.instanceOne = instanceOne;
