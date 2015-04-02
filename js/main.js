@@ -94,3 +94,30 @@ if (window.outerWidth <= 640) {
     document.getElementById('wrapper').className = 'desktop';
     imageFlowOptions.imageFocusMax = 2;
 }
+
+
+/* Create ImageFlow instances when the DOM structure has been loaded */
+domReady(function()
+{
+    // Using DOM to render images from JSON
+    var renderImages = function(persons) {
+        var imageFlowDiv = document.getElementById('myImageFlow');
+        // Clean up div child
+        while (imageFlowDiv.firstChild) {
+            imageFlowDiv.removeChild(imageFlowDiv.firstChild);
+        }
+        // create image elements
+        for (var key in persons) {
+            var elem = document.createElement('img');
+            elem.setAttribute('src', persons[key].imagePath);
+            elem.setAttribute('height', persons[key].imageHeight);
+            elem.setAttribute('width', persons[key].imageWidth);
+            elem.setAttribute('alt', key);
+            imageFlowDiv.appendChild(elem);
+        }
+    };
+
+    // render images by persons JSON
+    renderImages(persons);
+});
+
